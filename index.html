@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Mortgage repayment calculator</title>
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <!-- SAME HEAD SECTION -->
+  ...
+  <body>
+    <main>
+      <div class="container form">
+        <div class="form-heading">
+          <h1>Mortgage Calculator</h1>
+          <button
+            id="clear-btn"
+            type="button"
+            aria-label="Clear all form inputs"
+          >
+            Clear All
+          </button>
+        </div>
+
+        <form action="" aria-labelledby="mortgage-form-heading">
+          <div class="input-container">
+            <label for="mortgage-amount">Mortgage Amount</label>
+            <div class="input-with-symbol">
+              <div class="pound-symbol-container" aria-hidden="true">
+                <span class="pound-symbol">£</span>
+              </div>
+              <input
+                type="number"
+                class="mortgage-amount"
+                id="mortgage-amount"
+                name="mortgage-amount"
+                inputmode="decimal"
+                aria-required="true"
+                aria-describedby="mortgage-amount-desc"
+              />
+            </div>
+            <div id="mortgage-amount-desc" class="sr-only">
+              Enter the mortgage amount in pounds
+            </div>
+          </div>
+
+          <div class="input-container">
+            <div>
+              <label for="mortgage-term">Mortgage Term</label>
+              <div class="input-with-symbol">
+                <input
+                  type="number"
+                  class="mortgage-term"
+                  id="mortgage-term"
+                  name="mortgage-term"
+                  inputmode="numeric"
+                  aria-required="true"
+                  aria-describedby="mortgage-term-desc"
+                />
+                <span class="term-symbol" aria-hidden="true">years</span>
+              </div>
+              <div id="mortgage-term-desc" class="sr-only">
+                Enter the mortgage term in years
+              </div>
+            </div>
+
+            <div>
+              <label for="interest-rate">Interest Rate</label>
+              <div class="input-with-symbol">
+                <input
+                  type="number"
+                  class="interest-rate"
+                  id="interest-rate"
+                  name="interest-rate"
+                  step="0.01"
+                  inputmode="decimal"
+                  aria-required="true"
+                  aria-describedby="interest-rate-desc"
+                />
+                <span class="rate-symbol" aria-hidden="true">%</span>
+              </div>
+              <div id="interest-rate-desc" class="sr-only">
+                Enter the interest rate as a percentage
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="input-container"
+            role="radiogroup"
+            aria-labelledby="mortgage-type-label"
+          >
+            <label id="mortgage-type-label">Mortgage Type</label>
+
+            <div class="radio-option">
+              <input
+                type="radio"
+                id="repayment"
+                name="mortgage-type"
+                value="repayment"
+                aria-checked="false"
+              />
+              <label for="repayment">Repayment</label>
+            </div>
+
+            <div class="radio-option">
+              <input
+                type="radio"
+                id="interest-only"
+                name="mortgage-type"
+                value="interest-only"
+                aria-checked="false"
+              />
+              <label for="interest-only">Interest Only</label>
+            </div>
+          </div>
+
+          <button
+            type="submit"
+            id="submit-btn"
+            class="submit-btn"
+            aria-label="Calculate mortgage repayments"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="none"
+              viewBox="0 0 24 24"
+              role="presentation"
+              aria-hidden="true"
+            >
+              <path
+                fill="#133041"
+                d="M18.75 2.25H5.25a1.5 1.5 0 0 0-1.5 1.5v16.5a1.5 1.5 0 0 0 1.5 1.5h13.5a1.5 1.5 0 0 0 1.5-1.5V3.75a1.5 1.5 0 0 0-1.5-1.5Zm-10.5 16.5a1.125 1.125 0 1 1 0-2.25 1.125 1.125 0 0 1 0 2.25Zm0-3.75a1.125 1.125 0 1 1 0-2.25 1.125 1.125 0 0 1 0 2.25ZM12 18.75a1.125 1.125 0 1 1 0-2.25 1.125 1.125 0 0 1 0 2.25ZM12 15a1.125 1.125 0 1 1 0-2.25A1.125 1.125 0 0 1 12 15Zm3.75 3.75a1.125 1.125 0 1 1 0-2.25 1.125 1.125 0 0 1 0 2.25Zm0-3.75a1.125 1.125 0 1 1 0-2.25 1.125 1.125 0 0 1 0 2.25Zm1.5-5.25a.75.75 0 0 1-.75.75h-9a.75.75 0 0 1-.75-.75V6a.75.75 0 0 1 .75-.75h9a.75.75 0 0 1 .75.75v3.75Z"
+              />
+            </svg>
+            Calculate Repayments
+          </button>
+        </form>
+      </div>
+
+      <div class="container results" id="results" aria-live="polite">
+        <img
+          src="assets/images/illustration-empty.svg"
+          alt="An illustration indicating no data available"
+        />
+        <h3>Results shown here</h3>
+        <p id="text-center">
+          Complete the form and click “calculate repayments” to see what your
+          monthly repayments would be.
+        </p>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
